@@ -26,7 +26,10 @@ export default class Picture extends Component {
     */
     render() {
         return (
-            <h1>{this.props.picture.location}</h1>
+            <div>
+                <h1>{this.props.place}</h1>
+                <img src={this.props.url}></img>
+            </div>
         )
     }
 }
