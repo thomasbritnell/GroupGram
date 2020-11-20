@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.card{
+  width: 18rem;
+  margin-bottom: 30px;
+}
+
+.background{
+  background: #363636;
+}

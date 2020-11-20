@@ -16,12 +16,10 @@ export default class PictureFolder extends Component {
 
     componentDidMount = () => {
         axios.get("/pictures").then(response => {
-            // console.log(response)
-            this.state.pictures = response.data.pictures;
-            // console.log(response.data.pictures);
+
+            //console.log(response.data.pictures);
             this.setState({
-                // location: response.data.pictures[1].location
-                // pictures: response.date.pictures,
+                pictures: response.data.pictures,
             })
 
         })
@@ -32,18 +30,18 @@ export default class PictureFolder extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    {this.state.pictures.map( 
-                        ({location,imageURL}) => 
-                        <div className="col-6">
-                            <Picture 
-                                place={location}
-                                url ={imageURL}                                
-                            />
-                        </div>
+                    {this.state.pictures.map(
+                        ({ location, imageURL }) =>
+                            <div className="col-4">
+                                <Picture
+                                    place={location}
+                                    url={imageURL}
+                                />
+                            </div>
                     )}
                 </div>
             </div >
-                
+
         )
     }
 }
