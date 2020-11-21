@@ -39,9 +39,13 @@
 
 .card{
   width: 18rem;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 }
 
 .background{
   background: #363636;
+}
+
+.polaroid{
+  height: 20vw;
 }

@@ -29,13 +29,15 @@ export default class PictureFolder extends Component {
     render() {
         return (
             <div className="container">
+
                 <div className="row">
                     {this.state.pictures.map(
-                        ({ location, imageURL }) =>
+                        ({ location, imageURL, caption }) =>
                             <div className="col-4">
                                 <Picture
                                     place={location}
                                     url={imageURL}
+                                    caption={caption}
                                 />
                             </div>
                     )}
