@@ -21,8 +21,8 @@ app.get('/', function (req, res) {
     res.send('hello world');
 });
 
-app.get('/pictures', async function (req, res) {
-    const pictures = await Picture.find({});
+app.get('/:album/pictures/', async function (req, res) {
+    const pictures = await Picture.find({ album: req.params.album });
     res.send({ pictures });
 });
 

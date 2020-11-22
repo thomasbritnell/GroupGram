@@ -7,6 +7,7 @@ const PictureSchema = new Schema({
     creator: String,
     postDate: Date,
     imageURL: String,
+    album: String,
 });
 
 module.exports = mongoose.model('Picture', PictureSchema);

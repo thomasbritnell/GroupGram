@@ -12,35 +12,18 @@ export default class Picture extends Component {
             location: "",
         };
     }
-    /*
-        componentDidMount = () => {
-            axios.get("/pictures").then(response => {
-                console.log(response)
-    
-                for (let i = 0; i < 10; i++) {
-                    console.log(response.data.pictures[i].location)
-                }
-    
-            })
-        }
-    */
+
     render() {
         return (
-
 
             <div className="card border border-dark">
                 <img className="card-img-top polaroid" src={this.props.url} alt="Card image cap" />
                 <div className="card-body">
                     <p className="card-text">{this.props.caption}</p>
+                    <p>{this.props.album}</p>
                 </div>
             </div >
 
-            /*
-                        <div>
-                            <h1>{this.props.place}</h1>
-                            <img src={this.props.url}></img>
-                        </div>
-            */
         )
     }
 }

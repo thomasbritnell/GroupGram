@@ -1,4 +1,5 @@
 import { React, Component } from 'react';
+import { useParams } from "react-router-dom"
 import axios from 'axios';
 import Picture from './Picture'
 
@@ -15,8 +16,7 @@ export default class PictureFolder extends Component {
     }
 
     componentDidMount = () => {
-        axios.get("/pictures").then(response => {
-
+        axios.get(`/${this.props.match.params.album}/pictures/`).then(response => {
             //console.log(response.data.pictures);
             this.setState({
                 pictures: response.data.pictures,
@@ -32,12 +32,13 @@ export default class PictureFolder extends Component {
 
                 <div className="row">
                     {this.state.pictures.map(
-                        ({ location, imageURL, caption }) =>
+                        ({ location, imageURL, caption, album }) =>
                             <div className="col-4">
                                 <Picture
                                     place={location}
                                     url={imageURL}
                                     caption={caption}
+                                    album={album}
                                 />
                             </div>
                     )}

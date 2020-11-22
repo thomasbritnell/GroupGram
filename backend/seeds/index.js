@@ -24,6 +24,7 @@ const seedDB = async () => {
             creator: seeds[i].creator,
             postDate: seeds[i].postDate,
             imageURL: seeds[i].imageURL,
+            album: seeds[i].album,
         })
         await picture.save()
     }
