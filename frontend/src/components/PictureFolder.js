@@ -27,8 +27,7 @@ export default class PictureFolder extends Component {
 
     render() {
         return (
-            <div className="container mt-5">
-                <h1 className="text-light">FamGram</h1>
+            <div className="mt-5">
                 <div className="row">
                     {this.state.pictures.map(
                         ({ location, imageURL, caption, album }) =>
