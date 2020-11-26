@@ -47,5 +47,7 @@
 }
 
 .polaroid{
-  height: 20vw;
+  height: 75%;
+  width: auto;
+  /* height: 20vw; */
 }
