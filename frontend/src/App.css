@@ -38,15 +38,13 @@
 }
 
 .card{
-  width: 18rem;
-  margin-bottom: 45px;
-}
-
-.background{
-  background: #363636;
+  /* width: 18rem;
+  margin-bottom: 45px; */
 }
 
 .polaroid{
-  height: 20vw;
+  height: 75%;
+  width: auto;
+  /* height: 20vw; */
 }
 

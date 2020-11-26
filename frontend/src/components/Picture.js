@@ -16,7 +16,7 @@ export default class Picture extends Component {
     render() {
         return (
 
-            <div className="card border border-dark">
+            <div className="card border border-dark mt-3">
                 <img className="card-img-top polaroid" src={this.props.url} alt="Card image cap" />
                 <div className="card-body">
                     <p className="card-text">{this.props.caption}</p>
