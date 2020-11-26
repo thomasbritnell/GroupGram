@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const port = 3000;
-const Picture = require('../models/pictures')
-const seeds = require('./seedHelpers')
+const Picture = require('../models/pictures');
+const User = require('../models/User');
+const seeds = require('./seedHelpers');
 
 mongoose.connect('mongodb://localhost:27017/famgram', {
     useNewUrlParser: true,
@@ -28,6 +29,12 @@ const seedDB = async () => {
         })
         await picture.save()
     }
+
+    const user = new User({
+        name: "Test User",
+        pwd: "password",
+    })
+    user.save();
 }
 
 seedDB().then(() => {
