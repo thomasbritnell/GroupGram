@@ -27,12 +27,6 @@ app.get('/:album/pictures/', async function (req, res) {
     res.send({ pictures });
 });
 
-app.get('/user', async function (req, res) {
-    const user = await User.find({ name: req.params.name });
-    res.send({ pictures });
-});
-
-
 app.listen(port, function () {
     console.log(`Server is running on ${port}`);
 });

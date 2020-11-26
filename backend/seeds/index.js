@@ -18,6 +18,7 @@ db.once("open", () => {
 
 const seedDB = async () => {
     await Picture.deleteMany({});
+    await User.deleteMany({});
     for (let i = 0; i < 30; i++) {
         const picture = new Picture({
             location: seeds[i].location,
@@ -31,10 +32,10 @@ const seedDB = async () => {
     }
 
     const user = new User({
-        name: "Test User",
-        pwd: "password",
+        username: "Test User",
+        pwd: "password234234",
     })
-    user.save();
+    await user.save();
 }
 
 seedDB().then(() => {
