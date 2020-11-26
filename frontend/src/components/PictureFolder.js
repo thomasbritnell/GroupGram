@@ -25,7 +25,6 @@ export default class PictureFolder extends Component {
         })
     }
 
-
     render() {
         return (
             <div className="container">
