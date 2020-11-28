@@ -3,6 +3,7 @@ const port = 3000;
 const Picture = require('../models/pictures');
 const User = require('../models/User');
 const seeds = require('./seedHelpers');
+const userSeeds = require('./usersSeed')
 
 mongoose.connect('mongodb://localhost:27017/famgram', {
     useNewUrlParser: true,
@@ -23,7 +24,7 @@ const seedDB = async () => {
         const picture = new Picture({
             location: seeds[i].location,
             caption: seeds[i].caption,
-            creator: seeds[i].creator,
+            user: seeds[i].user,
             postDate: seeds[i].postDate,
             imageURL: seeds[i].imageURL,
             album: seeds[i].album,
@@ -31,11 +32,15 @@ const seedDB = async () => {
         await picture.save()
     }
 
-    const user = new User({
-        username: "Test User",
-        pwd: "password234234",
-    })
-    await user.save();
+    for (let i = 0; i < 25; i++) {
+        const user = new User({
+            username: userSeeds[i].username,
+            firstName: userSeeds[i].firstName,
+            lastName: userSeeds[i].lastName,
+            email: userSeeds[i].email
+        })
+        await user.save()
+    }
 }
 
 seedDB().then(() => {

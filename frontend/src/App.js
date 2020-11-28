@@ -11,7 +11,7 @@ class App extends Component {
     const App = () => (
       <div className="container">
         <h1 className="text-light mt-5">FamGram</h1>
-        <Breadcrumb/>
+        <Breadcrumb />
         <Switch>
           <Route exact path='/:album/pictures/' component={PictureFolder} />
 
