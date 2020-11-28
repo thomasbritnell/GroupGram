@@ -23,6 +23,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:album/pictures/', async function (req, res) {
+    //grab the user id from the picture, find in the users table and then send it along
     const pictures = await Picture.find({ album: req.params.album });
     res.send({ pictures });
 });

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const PictureSchema = new Schema({
     caption: String,
     location: String,
-    user: Number,
+    user: String,
     postDate: Date,
     imageURL: String,
     album: String,

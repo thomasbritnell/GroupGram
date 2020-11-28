@@ -21,6 +21,7 @@ export default class Picture extends Component {
                 <div className="card-body">
                     <p className="card-text">{this.props.caption}</p>
                     <p>{this.props.album}</p>
+                    <p>{this.props.user}</p>
                 </div>
             </div >
 
