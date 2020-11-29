@@ -1,5 +1,5 @@
 import { React, Component } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from 'axios';
 
 export default class AlbumFolder extends Component {
@@ -29,7 +29,7 @@ export default class AlbumFolder extends Component {
                         ({ group, albumName }) =>
                             <div className="col-12 col-sm-6 col-md-4">
                                 <h2>{group}'s Albums</h2>
-                                <h4>{albumName}</h4>
+                                <Link to={{ pathname: `/${albumName}/pictures` }}><h4>{albumName}</h4></Link>
                             </div>
                     )}
                 </div>
