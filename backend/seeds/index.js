@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Album = require('../models/Album');
 const port = 3000;
 const Picture = require('../models/pictures');
 const User = require('../models/User');
@@ -41,6 +42,15 @@ const seedDB = async () => {
         })
         await user.save()
     }
+
+    const album = new Album({
+        creator: "Alena97",
+        postDate: "2020-08-03T21:12:23.964Z",
+        albumName: "teal",
+        group: "HS",
+    })
+
+    await album.save()
 }
 
 seedDB().then(() => {

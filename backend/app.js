@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const port = 5000;
 const Picture = require('./models/pictures');
 const User = require('./models/User');
+const Album = require('./models/Album');
 
 mongoose.connect('mongodb://localhost:27017/famgram', {
     useNewUrlParser: true,
@@ -17,7 +18,6 @@ db.once("open", () => {
     console.log("Database connected");
 });
 
-
 app.get('/', function (req, res) {
     res.send('hello world');
 });
@@ -26,6 +26,11 @@ app.get('/:album/pictures/', async function (req, res) {
     //grab the user id from the picture, find in the users table and then send it along
     const pictures = await Picture.find({ album: req.params.album });
     res.send({ pictures });
+});
+
+app.get('/:group/albums/', async function (req, res) {
+    const albums = await Album.find({ group: req.params.group })
+    res.send({ albums });
 });
 
 app.listen(port, function () {

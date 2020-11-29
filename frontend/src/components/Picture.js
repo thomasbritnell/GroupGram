@@ -6,10 +6,7 @@ export default class Picture extends Component {
     constructor() {
         super();
         this.state = {
-            caption: "",
-            uploader: "",
-            date: "",
-            location: "",
+
         };
     }
 
