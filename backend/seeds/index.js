@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
+const Album = require('../models/Album');
 const port = 3000;
-const Picture = require('../models/pictures')
-const seeds = require('./seedHelpers')
+const Picture = require('../models/pictures');
+const User = require('../models/User');
+const seeds = require('./seedHelpers');
+const userSeeds = require('./usersSeed')
 
 mongoose.connect('mongodb://localhost:27017/famgram', {
     useNewUrlParser: true,
@@ -17,17 +20,37 @@ db.once("open", () => {
 
 const seedDB = async () => {
     await Picture.deleteMany({});
+    await User.deleteMany({});
     for (let i = 0; i < 30; i++) {
         const picture = new Picture({
             location: seeds[i].location,
             caption: seeds[i].caption,
-            creator: seeds[i].creator,
+            user: seeds[i].user,
             postDate: seeds[i].postDate,
             imageURL: seeds[i].imageURL,
             album: seeds[i].album,
         })
         await picture.save()
     }
+
+    for (let i = 0; i < 25; i++) {
+        const user = new User({
+            username: userSeeds[i].username,
+            firstName: userSeeds[i].firstName,
+            lastName: userSeeds[i].lastName,
+            email: userSeeds[i].email
+        })
+        await user.save()
+    }
+
+    const album = new Album({
+        creator: "Alena97",
+        postDate: "2020-08-03T21:12:23.964Z",
+        albumName: "teal",
+        group: "HS",
+    })
+
+    await album.save()
 }
 
 seedDB().then(() => {
