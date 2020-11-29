@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Picture from './components/Picture'
 import PictureFolder from './components/PictureFolder'
+import AlbumFolder from './components/AlbumFolder'
 import Breadcrumb from './components/Breadcrumb';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -11,10 +12,10 @@ class App extends Component {
     const App = () => (
       <div className="container">
         <h1 className="text-light mt-5">FamGram</h1>
-        <Breadcrumb/>
+        <Breadcrumb />
         <Switch>
           <Route exact path='/:album/pictures/' component={PictureFolder} />
-
+          <Route exact path='/:group/albums/' component={AlbumFolder} />
         </Switch>
       </div>
     )
