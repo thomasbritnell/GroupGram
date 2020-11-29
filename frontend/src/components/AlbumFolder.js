@@ -24,7 +24,6 @@ export default class AlbumFolder extends Component {
     render() {
         return (
             <div className="mt-5">
-
                 <div className="row">
                     {this.state.albums.map(
                         ({ group, albumName }) =>
