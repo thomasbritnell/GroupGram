@@ -28,8 +28,9 @@ export default class AlbumFolder extends Component {
                     {this.state.albums.map(
                         ({ group, albumName }) =>
                             <div className="col-12 col-sm-6 col-md-4">
-                                <h2>{group}'s Albums</h2>
-                                <Link to={{ pathname: `/${albumName}/pictures` }}><h4>{albumName}</h4></Link>
+                                <h2 className="text-light">{group}'s Albums</h2>
+                                <hr />
+                                <h4><Link to={{ pathname: `/${albumName}/pictures` }}>{albumName}</Link></h4>
                             </div>
                     )}
                 </div>
