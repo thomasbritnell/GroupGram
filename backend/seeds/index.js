@@ -21,6 +21,7 @@ db.once("open", () => {
 const seedDB = async () => {
     await Picture.deleteMany({});
     await User.deleteMany({});
+    await Album.deleteMany({});
     for (let i = 0; i < 30; i++) {
         const picture = new Picture({
             location: seeds[i].location,
@@ -50,7 +51,15 @@ const seedDB = async () => {
         group: "HS",
     })
 
+    const album2 = new Album({
+        creator: "Doyle25",
+        postDate: "2019-11-30T03:31:05.123Z",
+        albumName: "violet",
+        group: "HS",
+    })
+
     await album.save()
+    await album2.save()
 }
 
 seedDB().then(() => {
