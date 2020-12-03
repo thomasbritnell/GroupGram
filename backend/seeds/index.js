@@ -49,7 +49,7 @@ const seedDB = async () => {
         postDate: "2020-08-03T21:12:23.964Z",
         albumName: "teal",
         group: "HS",
-        id: "0",
+        id: Object,
     })
 
     const album2 = new Album({
