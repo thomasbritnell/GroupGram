@@ -49,6 +49,7 @@ const seedDB = async () => {
         postDate: "2020-08-03T21:12:23.964Z",
         albumName: "teal",
         group: "HS",
+        id: "0",
     })
 
     const album2 = new Album({
@@ -58,8 +59,9 @@ const seedDB = async () => {
         group: "HS",
     })
 
-    await album.save()
+    await album.save(console.log(album.id))
     await album2.save()
+
 }
 
 seedDB().then(() => {
