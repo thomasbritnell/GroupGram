@@ -54,7 +54,7 @@ const seedDB = async () => {
     const album2 = new Album({
         creator: "Doyle25",
         postDate: "2019-11-30T03:31:05.123Z",
-        albumName: "violet",
+        albumName: "gold",
         group: "HS",
     })
 
