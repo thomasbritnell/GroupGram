@@ -49,7 +49,7 @@ const seedDB = async () => {
         postDate: "2020-08-03T21:12:23.964Z",
         albumName: "teal",
         group: "HS",
-        id: Object,
+        imageURL: "http://lorempixel.com/640/480/business",
     })
 
     const album2 = new Album({
@@ -57,10 +57,20 @@ const seedDB = async () => {
         postDate: "2019-11-30T03:31:05.123Z",
         albumName: "gold",
         group: "HS",
+        imageURL: "http://lorempixel.com/640/480/cats",
     })
 
-    await album.save(console.log(album.id))
+    const album3 = new Album({
+        creator: "Doyle2",
+        postDate: "2019-11-30T03:31:05.123Z",
+        albumName: "Test",
+        group: "HS",
+        imageURL: "http://lorempixel.com/640/480/cats",
+    })
+
+    await album.save()
     await album2.save()
+    await album3.save()
 
 }
 
