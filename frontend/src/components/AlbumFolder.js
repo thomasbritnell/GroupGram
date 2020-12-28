@@ -3,6 +3,14 @@ import { useParams, Link } from "react-router-dom";
 import axios from 'axios';
 import Album from './Album';
 
+const albumStyle = {
+    opacity: "1",
+};
+
+const bannerStyle = {
+    backgroundImage: 'url(http://lorempixel.com/640/480/abstract/6/)',
+};
+
 export default class AlbumFolder extends Component {
 
     constructor() {
@@ -26,8 +34,8 @@ export default class AlbumFolder extends Component {
         console.log(this.state.albums.id);
         return (
             <div className="container">
-                <div className="jumbotron jumbotron-fluid bg-transparent">
-                    <div className="container">
+                <div style={bannerStyle} className="jumbotron jumbotron-fluid">
+                    <div style={albumStyle} className="container">
                         <h1 className="display-4 text-light">{this.props.match.params.group}</h1>
                         <p className="lead text-light">Below are the albums for the group: {this.props.match.params.group}</p>
                     </div>
