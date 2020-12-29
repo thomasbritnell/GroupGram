@@ -11,8 +11,8 @@ class App extends Component {
   render() {
     const App = () => (
       <div className="container">
-        <h1 className="text-light mt-5">FamGram</h1>
-        <Breadcrumb />
+        {/* <h1 className="text-light mt-5">FamGram</h1> */}
+        {/* <Breadcrumb /> */}
         <Switch>
           <Route exact path='/:album/pictures/' name="pictures" component={PictureFolder} />
           <Route exact path='/:group/albums/' component={AlbumFolder} />

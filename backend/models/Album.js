@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema,
+    albumID = mongoose.Schema.ObjectId;
 
 const UserSchema = new Schema({
     username: String,
@@ -23,6 +24,7 @@ const AlbumSchema = new Schema({
     albumName: String,
     pictures: [PictureSchema],
     group: String,
+    imageURL: String,
 });
 
 module.exports = mongoose.model('Album', AlbumSchema);
