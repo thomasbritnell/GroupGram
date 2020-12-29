@@ -152,17 +152,17 @@ const seedDB = async () => {
         imageURL: "http://lorempixel.com/640/480/cats",
     })
 
-    const album3 = new Album({
-        creator: "Doyle2",
-        postDate: "2019-11-30T03:31:05.123Z",
-        albumName: "Test",
-        group: "HS",
-        imageURL: "http://lorempixel.com/640/480/cats",
-    })
+    // const album3 = new Album({
+    //     creator: "Doyle2",
+    //     postDate: "2019-11-30T03:31:05.123Z",
+    //     albumName: "Test",
+    //     group: "HS",
+    //     imageURL: "http://lorempixel.com/640/480/cats",
+    // })
 
     await album.save()
     await album2.save()
-    await album3.save()
+    // await album3.save()
 
 }
 
