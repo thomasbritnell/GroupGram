@@ -23,8 +23,8 @@ app.get('/', function (req, res) {
 });
 
 app.get('/:album/pictures/', async function (req, res) {
-    const pictures = await Picture.find({ album: req.params.album });
-    res.send({ pictures });
+    const album = await Album.find({ albumName: req.params.album })
+    res.send({ album });
 });
 
 app.get('/:group/albums/', async function (req, res) {
