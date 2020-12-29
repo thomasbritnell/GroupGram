@@ -1,4 +1,5 @@
 import { React, Component } from 'react';
+import Avatar from '@material-ui/core/Avatar';
 import axios from 'axios';
 
 
@@ -16,6 +17,7 @@ export default class Picture extends Component {
             <div className="card border border-dark mt-3">
                 <img className="card-img-top polaroid" src={this.props.url} alt="Card image cap" />
                 <div className="card-body">
+                    <Avatar src="/broken-image.jpg" />
                     <p className="card-text">{this.props.caption}</p>
                     <p>{this.props.album}</p>
                     <p>{this.props.user}</p>

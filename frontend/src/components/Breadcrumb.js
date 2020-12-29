@@ -4,10 +4,10 @@ function Breadcrumb() {
     return (
         <div>
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb bg-transparent">
-                    <li class="breadcrumb-item"><a className="text-light" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a className="text-light" href="#">Orange</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Pictures</li>
+                <ol className="breadcrumb bg-transparent">
+                    <li className="breadcrumb-item"><a className="text-light" href="#">Home</a></li>
+                    <li className="breadcrumb-item"><a className="text-light" href="#">Orange</a></li>
+                    <li className="breadcrumb-item active" aria-current="page">Pictures</li>
                 </ol>
             </nav>
         </div>
