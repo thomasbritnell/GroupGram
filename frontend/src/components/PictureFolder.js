@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom"
 import axios from 'axios';
 import Picture from './Picture'
 
-
 export default class PictureFolder extends Component {
 
     constructor() {
@@ -17,9 +16,9 @@ export default class PictureFolder extends Component {
 
     componentDidMount = () => {
         axios.get(`/${this.props.match.params.album}/pictures/`).then(response => {
-            //console.log(response.data.pictures);
+            console.log(response.data.album[0].pictures);
             this.setState({
-                pictures: response.data.pictures,
+                pictures: response.data.album[0].pictures,
             })
         })
     }

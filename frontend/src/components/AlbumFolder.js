@@ -1,6 +1,15 @@
 import { React, Component } from 'react';
 import { useParams, Link } from "react-router-dom";
 import axios from 'axios';
+import Album from './Album';
+
+const albumStyle = {
+    opacity: "1",
+};
+
+const bannerStyle = {
+    backgroundImage: 'url(http://lorempixel.com/640/480/abstract/6/)',
+};
 
 export default class AlbumFolder extends Component {
 
@@ -22,14 +31,22 @@ export default class AlbumFolder extends Component {
     }
 
     render() {
+        console.log(this.state.albums.id);
         return (
-            <div className="mt-5">
-                <h2 className="text-light">HS's Albums</h2>
-                <div className="row">
+            <div className="container">
+                <div style={bannerStyle} className="jumbotron jumbotron-fluid">
+                    <div style={albumStyle} className="container">
+                        <h1 className="display-4 text-light">{this.props.match.params.group}</h1>
+                        <p className="lead text-light">Below are the albums for the group: {this.props.match.params.group}</p>
+                    </div>
+                </div>
+                <div className="container row">
                     {this.state.albums.map(
-                        ({ group, albumName }) =>
-                            <div className="col-12 col-sm-6 col-md-4">
-                                <h4><Link to={{ pathname: `/${albumName}/pictures` }}>{albumName}</Link></h4>
+                        ({ group, albumName, imageURL, id }) =>
+                            <div className="col-12 col-sm-5 col-md-3 mx-1 my-2">
+                                <Link className="text-dark text-center" to={{ pathname: `/${albumName}/pictures` }}>
+                                    <Album name={albumName} imageURL={imageURL} />
+                                </Link>
                             </div>
                     )}
                 </div>
