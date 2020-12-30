@@ -1,5 +1,6 @@
 import { React, Component } from 'react';
-import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 
 
 export default class Picture extends Component {
@@ -14,9 +15,12 @@ export default class Picture extends Component {
         return (
 
             <div className="card border border-dark mt-3">
-                <img className="card-img-top polaroid" src={this.props.url} alt="Card image cap" />
+                <img className="card-img-top polaroid" src={this.props.url} alt="caption" />
                 <div className="card-body">
-                    <p className="card-text">{this.props.caption}</p>
+                    <p className="card-text">
+                        {this.props.caption}
+                        <FontAwesomeIcon className="ml-2" icon={faEllipsisV} />
+                    </p>
                     <p>{this.props.album}</p>
                     <p>{this.props.user}</p>
                 </div>
