@@ -55,7 +55,7 @@ const seedDB = async () => {
             "email": "Javier30@hotmail.com"
         },
         postDate: "2020-08-03T21:12:23.964Z",
-        albumName: "AlbumName1",
+        albumName: "Album Name 1",
         pictures: [
             {
                 "id": "1",

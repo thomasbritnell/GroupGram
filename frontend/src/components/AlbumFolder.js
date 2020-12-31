@@ -22,7 +22,6 @@ export default class AlbumFolder extends Component {
 
     componentDidMount = () => {
         axios.get(`/${this.props.match.params.group}/albums/`).then(response => {
-            console.log(response.data.albums);
             this.setState({
                 albums: response.data.albums,
             })
@@ -31,7 +30,6 @@ export default class AlbumFolder extends Component {
     }
 
     render() {
-        console.log(this.state.albums.id);
         return (
             <div className="container">
                 <div style={bannerStyle} className="jumbotron jumbotron-fluid pb-2">
@@ -42,9 +40,10 @@ export default class AlbumFolder extends Component {
                 </div>
                 <div className="container row">
                     {this.state.albums.map(
-                        ({ group, albumName, imageURL, id }) =>
+                        ({ group, albumName, imageURL, _id }) =>
                             <div className="col-12 col-sm-5 col-md-4 mx-1 my-2">
-                                <Link className="text-dark text-center" to={{ pathname: `/${albumName}/pictures` }}>
+                                <p></p>
+                                <Link className="text-dark text-center" to={{ pathname: `/album/${_id}` }}>
                                     <Album name={albumName} imageURL={imageURL} />
                                 </Link>
                             </div>

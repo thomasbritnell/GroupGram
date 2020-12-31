@@ -16,7 +16,7 @@ class App extends Component {
         {/* <Breadcrumb /> */}
 
         <Switch>
-          <Route exact path='/:album/pictures/' name="pictures" component={PictureFolder} />
+          <Route exact path='/album/:id/' name="pictures" component={PictureFolder} />
           <Route exact path='/:group/albums/' component={AlbumFolder} />
         </Switch>
       </div>
