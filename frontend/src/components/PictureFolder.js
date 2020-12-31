@@ -15,8 +15,7 @@ export default class PictureFolder extends Component {
     }
 
     componentDidMount = () => {
-        axios.get(`/${this.props.match.params.album}/pictures/`).then(response => {
-            console.log(response.data.album[0].pictures);
+        axios.get(`/album/${this.props.match.params.id}/`).then(response => {
             this.setState({
                 pictures: response.data.album[0].pictures,
             })
