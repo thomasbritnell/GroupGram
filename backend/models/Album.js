@@ -12,13 +12,13 @@ const UserSchema = new Schema({
 const PictureSchema = new Schema({
     caption: String,
     location: String,
-    user: UserSchema,
+    user: UserSchema._id,
     postDate: Date,
     imageURL: String,
 });
 
 const AlbumSchema = new Schema({
-    creator: UserSchema,
+    creator: UserSchema._id,
     postDate: Date,
     albumName: String,
     pictures: [PictureSchema],
