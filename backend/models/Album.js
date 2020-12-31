@@ -7,6 +7,7 @@ const UserSchema = new Schema({
     firstName: String,
     lastName: String,
     email: String,
+    groups: [GroupSchema]
 });
 
 const PictureSchema = new Schema({
