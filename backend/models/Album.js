@@ -13,13 +13,14 @@ const UserSchema = new Schema({
 const PictureSchema = new Schema({
     caption: String,
     location: String,
-    user: UserSchema._id,
+    user: UserSchema,
     postDate: Date,
     imageURL: String,
+    album: AlbumSchema._id,
 });
 
 const AlbumSchema = new Schema({
-    creator: UserSchema._id,
+    creator: UserSchema,
     postDate: Date,
     albumName: String,
     pictures: [PictureSchema],
@@ -28,7 +29,7 @@ const AlbumSchema = new Schema({
 
 const GroupSchema = new Schema({
     name: String,
-    members: [UserSchema._id],
+    members: [UserSchema],
     imageURL: String,
     albums: [AlbumSchema],
 });
