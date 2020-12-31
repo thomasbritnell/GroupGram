@@ -22,11 +22,13 @@ app.get('/', function (req, res) {
     res.send('hello world');
 });
 
+//PICTURES PAGE
 app.get('/album/:id/', async function (req, res) {
     const album = await Album.find({ _id: req.params.id })
     res.send({ album });
 });
 
+//ALBUM PAGE
 app.get('/:group/albums/', async function (req, res) {
     const albums = await Album.find({ group: req.params.group })
     res.send({ albums });
