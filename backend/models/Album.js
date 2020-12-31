@@ -12,19 +12,24 @@ const UserSchema = new Schema({
 const PictureSchema = new Schema({
     caption: String,
     location: String,
-    user: String,
+    user: UserSchema,
     postDate: Date,
     imageURL: String,
 });
-
 
 const AlbumSchema = new Schema({
     creator: UserSchema,
     postDate: Date,
     albumName: String,
     pictures: [PictureSchema],
-    group: String,
     imageURL: String,
 });
 
-module.exports = mongoose.model('Album', AlbumSchema);
+const GroupSchema = new Schema({
+    name: String,
+    members: [UserSchema._id],
+    imageURL: String,
+    albums: [AlbumSchema],
+});
+
+module.exports = mongoose.model('Group', GroupSchema);
