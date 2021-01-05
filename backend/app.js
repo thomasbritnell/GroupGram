@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const port = 5000;
 const Picture = require('./models/pictures');
 const User = require('./models/User');
-const Album = require('./models/Album');
+const Group = require('./models/Group');
 
 mongoose.connect('mongodb://localhost:27017/famgram', {
     useNewUrlParser: true,
@@ -24,13 +24,13 @@ app.get('/', function (req, res) {
 
 //PICTURES PAGE - PictureFolder
 app.get('/album/:id/', async function (req, res) {
-    const album = await Album.find({ _id: req.params.id })
+    const album = await Group.find({ _id: req.params.id })
     res.send({ album });
 });
 
 //ALBUM PAGE - AlbumFolder
 app.get('/:group/albums/', async function (req, res) {
-    const albums = await Album.find({ group: req.params.group })
+    const albums = await Group.find({ group: req.params.group })
     res.send({ albums });
 });
 

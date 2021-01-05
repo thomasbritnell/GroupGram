@@ -13,10 +13,10 @@ const UserSchema = new Schema({
 const PictureSchema = new Schema({
     caption: String,
     location: String,
-    user: UserSchema,
+    creator: UserSchema,
     postDate: Date,
     imageURL: String,
-    album: AlbumSchema._id,
+    album: AlbumSchema,
 });
 
 const AlbumSchema = new Schema({
@@ -35,3 +35,6 @@ const GroupSchema = new Schema({
 });
 
 module.exports = mongoose.model('Group', GroupSchema);
+module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Picture', PictureSchema);
+module.exports = mongoose.model('Album', AlbumSchema);
