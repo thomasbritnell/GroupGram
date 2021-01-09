@@ -19,7 +19,8 @@ db.once("open", () => {
 const seedDB = async () => {
     await Schemas.Picture.deleteMany({});
     await Schemas.User.deleteMany({});
-    // await Album.deleteMany({});
+    await Schemas.Album.deleteMany({});
+    await Schemas.Album.deleteMany({});
     /*
     for (let i = 0; i < 30; i++) {
         const picture = new Picture({
@@ -49,16 +50,9 @@ const seedDB = async () => {
         "firstName": "Mertie",
         "lastName": "Gulgowski",
         "email": "Willis_Ankunding@yahoo.com",
+        "groups": []
     });
-    /*
-        const album = new Album({
-            "creator": user,
-            "postDate": "2020-08-03T21:12:23.964Z",
-            "albumName": "Album Name 1",
-            "pictures": [picture],
-            "imageURL": "http://lorempixel.com/640/480/cats",
-        });
-    */
+
     const picture = new Schemas.Picture({
         "caption": "Tools focus group Borders",
         "location": "Myronberg",
@@ -66,14 +60,30 @@ const seedDB = async () => {
         "postDate": "2020-08-03T21:12:23.964Z",
         "imageURL": "http://lorempixel.com/640/480/technics",
     });
-    /*
-        const group = new Group({
-            "name": "HS",
-            "members": [user],
-            "imageURL": "http://lorempixel.com/640/480/technics",
-            "albums": [album]
-        });
-    */
+
+    const album = new Schemas.Album({
+        "creator": user,
+        "postDate": "2020-08-03T21:12:23.964Z",
+        "albumName": "Album Name 1",
+        "pictures": [picture],
+        "imageURL": "http://lorempixel.com/640/480/cats",
+    });
+
+    const group = new Schemas.Group({
+        "name": "HS",
+        "members": [user],
+        "imageURL": "http://lorempixel.com/640/480/technics",
+        "albums": [album]
+    });
+
+    const user2 = new Schemas.User({
+        "username": "Franklin",
+        "firstName": "Mertie",
+        "lastName": "Gulgowski",
+        "email": "Willis_Ankunding@yahoo.com",
+        "groups": [group]
+    });
+
     /*
         const album = new Album({
             creator: {
@@ -191,6 +201,9 @@ const seedDB = async () => {
     */
     await user.save()
     await picture.save()
+    await group.save()
+    await user2.save()
+    await album.save()
     // await album.save()
     // await group.save()
     // await album3.save()
