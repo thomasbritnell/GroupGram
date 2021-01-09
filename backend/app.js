@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const port = 5000;
-const Picture = require('./models/pictures');
+const Picture = require('./models/Picture');
 const User = require('./models/User');
-const Group = require('./models/Group');
+// const Group = require('./models/Group');
 
 mongoose.connect('mongodb://localhost:27017/famgram', {
     useNewUrlParser: true,

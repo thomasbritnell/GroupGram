@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
-const Album = require('../models/Album');
-cost
 const port = 3000;
-const Picture = require('../models/pictures');
-const User = require('../models/User');
+const Schemas = require('../models/Schema')
 const seeds = require('./seedHelpers');
 const userSeeds = require('./usersSeed')
 
@@ -20,9 +17,9 @@ db.once("open", () => {
 });
 
 const seedDB = async () => {
-    await Picture.deleteMany({});
-    await User.deleteMany({});
-    await Album.deleteMany({});
+    await Schemas.Picture.deleteMany({});
+    await Schemas.User.deleteMany({});
+    // await Album.deleteMany({});
     /*
     for (let i = 0; i < 30; i++) {
         const picture = new Picture({
@@ -46,38 +43,37 @@ const seedDB = async () => {
         await user.save()
     }
     */
-    const user = new User({
+
+    const user = new Schemas.User({
         "username": "Olga_Medhurst37",
         "firstName": "Mertie",
         "lastName": "Gulgowski",
         "email": "Willis_Ankunding@yahoo.com",
-        "groups": [group]
     });
-
-    const album = new Album({
-        "creator": user,
-        "postDate": "2020-08-03T21:12:23.964Z",
-        "albumName": "Album Name 1",
-        "pictures": [picture],
-        "imageURL": "http://lorempixel.com/640/480/cats",
-    });
-
-    const picture = new Picture({
+    /*
+        const album = new Album({
+            "creator": user,
+            "postDate": "2020-08-03T21:12:23.964Z",
+            "albumName": "Album Name 1",
+            "pictures": [picture],
+            "imageURL": "http://lorempixel.com/640/480/cats",
+        });
+    */
+    const picture = new Schemas.Picture({
         "caption": "Tools focus group Borders",
         "location": "Myronberg",
         "creator": user,
         "postDate": "2020-08-03T21:12:23.964Z",
         "imageURL": "http://lorempixel.com/640/480/technics",
-        "album": album,
     });
-
-    const group = new Group({
-        "name": "HS",
-        "members": [user],
-        "imageURL": "http://lorempixel.com/640/480/technics",
-        "albums": [album]
-    });
-
+    /*
+        const group = new Group({
+            "name": "HS",
+            "members": [user],
+            "imageURL": "http://lorempixel.com/640/480/technics",
+            "albums": [album]
+        });
+    */
     /*
         const album = new Album({
             creator: {
@@ -195,8 +191,8 @@ const seedDB = async () => {
     */
     await user.save()
     await picture.save()
-    await album.save()
-    await group.save()
+    // await album.save()
+    // await group.save()
     // await album3.save()
 
 }
