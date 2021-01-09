@@ -21,6 +21,7 @@ const seedDB = async () => {
     await Schemas.User.deleteMany({});
     await Schemas.Album.deleteMany({});
     await Schemas.Album.deleteMany({});
+    await Schemas.Group.deleteMany({});
     /*
     for (let i = 0; i < 30; i++) {
         const picture = new Picture({
